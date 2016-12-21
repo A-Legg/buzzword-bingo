@@ -1,0 +1,89 @@
+var _user$project$Bingo$viewFooter = A2(
+	_elm_lang$html$Html$footer,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$a,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$href('http://elm-lange.org'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Powered by Elm'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Bingo$viewHeader = function (title) {
+	return A2(
+		_elm_lang$html$Html$header,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(title),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Bingo$playerInfo = F2(
+	function (name, gameNumber) {
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			name,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				' - Game #',
+				_elm_lang$core$Basics$toString(gameNumber)));
+	});
+var _user$project$Bingo$viewPlayer = F2(
+	function (name, gameNumber) {
+		var playerInfoText = _elm_lang$html$Html$text(
+			_elm_lang$core$String$toUpper(
+				A2(_user$project$Bingo$playerInfo, name, gameNumber)));
+		return A2(
+			_elm_lang$html$Html$h2,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$id('info'),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('classy'),
+					_1: {ctor: '[]'}
+				}
+			},
+			{
+				ctor: '::',
+				_0: playerInfoText,
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Bingo$view = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('content'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: _user$project$Bingo$viewHeader('BUZZWORD BINGO!'),
+		_1: {
+			ctor: '::',
+			_0: A2(_user$project$Bingo$viewPlayer, 'Adam', 3),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Bingo$viewFooter,
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _user$project$Bingo$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(_user$project$Bingo$view);
